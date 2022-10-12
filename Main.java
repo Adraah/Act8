@@ -39,6 +39,9 @@ public class Main {
                 System.out.println("Mano:" + Arrays.toString(Deck.hand().toArray()));
                 Deck.cardsLeft();
                 break;
+            case default:
+                System.out.println("Opcion no valida");
+                break;
         }
     }
 }
