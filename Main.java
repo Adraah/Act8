@@ -2,11 +2,16 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-        showMenu();
+    public static void main(String[] args) throws Exception {
+        try{
+            showMenu();
+        }catch (Exception e) {
+            System.out.println("Opcion incorrecta, selecciona otra opcion");
+            showMenu();
+        }
     }
 
-    public static void showMenu() {
+    public static void showMenu() throws Exception{
         Scanner scan = new Scanner(System.in);
         CardsDeck Deck = new CardsDeck();
 
@@ -40,8 +45,7 @@ public class Main {
                 Deck.cardsLeft();
                 break;
             case default:
-                System.out.println("Opcion no valida");
-                break;
+                throw new Exception("Opcion no valida");
         }
     }
 }

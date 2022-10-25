@@ -85,9 +85,11 @@ public class CardsDeck {
         }
     }
 
-    public String pullRandom() {
-        if (mCards.isEmpty())
-            return null;
+    public String pullRandom() throws Exception{
+        if (mCards.isEmpty()){
+            throw new Exception("Se han agotado las cartas");
+        }
+
 
         Card res = mCards.remove(randInt(0, mCards.size() - 1));
         if (res != null)
@@ -99,9 +101,10 @@ public class CardsDeck {
         System.out.println("Quedan "+mCards.size()+" cartas");
     }
 
-    public ArrayList<Card> hand() {
-        if (mCards.isEmpty())
-            return null;
+    public ArrayList<Card> hand() throws Exception{
+        if (mCards.isEmpty()){
+            throw new Exception("Se han agotado las cartas");
+        }
 
         for (int i=0;i<5;i++){
             Card res = mCards.remove(randInt(0, mCards.size() - 1));
@@ -111,9 +114,10 @@ public class CardsDeck {
         return mHandCards;
     }
 
-    public String getFirst() {
-        if (mCards.isEmpty())
-            return null;
+    public String getFirst() throws Exception{
+        if (mCards.isEmpty()){
+            throw new Exception("Se han agotado las cartas");
+        }
 
         Card res = mCards.remove(0);
         if (res != null)
